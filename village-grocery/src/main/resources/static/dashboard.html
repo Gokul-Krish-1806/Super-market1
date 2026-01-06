@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Grocery Dashboard</title>
+<link rel="stylesheet" href="css/Dash.css">
+<!-- QRCode.js library -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/qrcodejs/1.0.0/qrcode.min.js"></script>
+</head>
+<body>
+
+<header>
+    <h2>Welcome <span id="user"></span></h2>
+    <div class="header-actions">
+        <button onclick="logout()" class="logout-btn">Logout</button>
+    </div>
+</header>
+
+<!-- Order Status -->
+<div id="orderStatusBox" class="status-box">
+    <strong>Order Status:</strong>
+    <span id="orderStatusText">No orders yet</span>
+</div>
+
+<!-- Container for vegetables/items -->
+<div class="container" id="vegContainer"></div>
+
+<!-- Total & Place Order -->
+<div class="total-section">
+    <div>Total: ₹<span id="total">0</span></div>
+    <button class="place-order" onclick="placeOrder()">Place Order</button>
+</div>
+
+<!-- Hidden container for all orders (needed for JS to work) -->
+<div id="myOrders" style="display:none;"></div>
+
+<!-- Order Modal -->
+<div id="orderModal" class="modal">
+  <div class="modal-content">
+    <span class="close-btn" onclick="closeModal()">&times;</span>
+    <h3>Customer Details</h3>
+    <input id="custName" placeholder="Customer Name">
+    <input id="custPhone" placeholder="Phone Number">
+    <h4>Order Summary</h4>
+    <div id="orderDetails"></div>
+    <div class="modal-total">Total: ₹<span id="modalTotal">0</span></div>
+
+    <!-- QR Code container -->
+    <div id="qrCodeContainer" style="text-align:center; margin-top:15px;"></div>
+
+    <button class="place-order" onclick="confirmOrder()">Confirm Order</button>
+  </div>
+</div>
+
+<script src="js/dash.js"></script>
+<script src="js/order-status.js"></script>
+</body>
+</html>

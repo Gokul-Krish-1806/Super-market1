@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+  <title>Home</title>
+</head>
+<body>
+
+<h1>Welcome to Village Grocery 🛒</h1>
+<p id="user"></p>
+
+<button onclick="logout()">Logout</button>
+
+<script>
+const user = localStorage.getItem("user");
+
+if (!user) {
+  window.location.href = "/login.html";
+}
+
+document.getElementById("user").innerText = "Hello, " + user;
+
+function logout() {
+  localStorage.removeItem("user");
+  window.location.href = "/login.html";
+}
+</script>
+
+</body>
+</html>
